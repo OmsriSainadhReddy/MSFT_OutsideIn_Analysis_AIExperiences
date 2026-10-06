@@ -1,0 +1,16 @@
+fiscal_quarter,calendar_months,metric,basis,yoy_growth,source_url
+FY25 Q3,Jan-Mar 2025,Search ad revenue ex-TAC growth,as reported,0.21,https://www.microsoft.com/en-us/investor/events/fy-2025/earnings-fy-2025-q3
+FY25 Q4,Apr-Jun 2025,Search ad revenue ex-TAC growth,as reported,0.21,https://www.microsoft.com/en-us/investor/events/fy-2025/earnings-fy-2025-q4
+FY26 Q1,Jul-Sep 2025,Search ad revenue ex-TAC growth,as reported,0.16,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1
+FY26 Q2,Oct-Dec 2025,Search ad revenue ex-TAC growth,as reported,0.1,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2
+FY26 Q3,Jan-Mar 2026,Search ad revenue ex-TAC growth,as reported,0.12,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3
+FY26 Q4,Apr-Jun 2026,Search ad revenue ex-TAC growth,as reported,0.1,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4
+FY26,Jul 2025-Jun 2026,Search ad revenue ex-TAC growth,as reported,0.12,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,Search and advertising revenue ex-TAC growth,restated (FY27 structure),0.16,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,Search and advertising revenue ex-TAC growth,restated (FY27 structure),0.13,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,Search and advertising revenue ex-TAC growth,restated (FY27 structure),0.14,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,Search and advertising revenue ex-TAC growth,restated (FY27 structure),0.13,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26,Jul 2025-Jun 2026,Search and advertising revenue ex-TAC growth,restated (FY27 structure),0.14,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,Microsoft 365 consumer cloud revenue growth,as reported,0.29,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2
+FY26 Q4,Apr-Jun 2026,Microsoft 365 consumer cloud revenue growth,as reported,0.24,https://microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast
+FY26 Q2,Oct-Dec 2025,Microsoft 365 consumer subscription growth,as reported,0.06,https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2

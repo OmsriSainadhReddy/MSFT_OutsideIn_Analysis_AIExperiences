@@ -1,0 +1,49 @@
+fiscal_quarter,calendar_months,period_end,business_line,basis,revenue_usd_m,source_url
+FY25 Q1,Jul-Sep 2024,2024-09-30,Search advertising,as reported,3225,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,Search advertising,as reported,3558,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,Search advertising,as reported,3504,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,Search advertising,as reported,3591,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,Search advertising,as reported,3697,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,Search advertising,as reported,3812,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,Search advertising,as reported,3808,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,Search advertising,as reported,3859,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q1,Jul-Sep 2024,2024-09-30,Microsoft 365 consumer products and cloud,as reported,1727,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,Microsoft 365 consumer products and cloud,as reported,1821,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,Microsoft 365 consumer products and cloud,as reported,1821,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,Microsoft 365 consumer products and cloud,as reported,2035,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,Microsoft 365 consumer products and cloud,as reported,2204,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,Microsoft 365 consumer products and cloud,as reported,2305,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,Microsoft 365 consumer products and cloud,as reported,2297,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,Microsoft 365 consumer products and cloud,as reported,2369,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q1,Jul-Sep 2024,2024-09-30,Windows and devices,as reported,4329,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,Windows and devices,as reported,4512,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,Windows and devices,as reported,4144,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,Windows and devices,as reported,4329,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,Windows and devices,as reported,4551,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,Windows and devices,as reported,4479,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,Windows and devices,as reported,4041,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,Windows and devices,as reported,4013,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q1,Jul-Sep 2024,2024-09-30,XBOX,as reported,5621,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,XBOX,as reported,6581,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,XBOX,as reported,5721,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,XBOX,as reported,5532,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,XBOX,as reported,5508,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,XBOX,as reported,5958,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,XBOX,as reported,5341,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,XBOX,as reported,4983,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q1,Jul-Sep 2024,2024-09-30,Devices and Consumer segment,restated (FY27 structure),15109,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,Devices and Consumer segment,restated (FY27 structure),16866,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,Devices and Consumer segment,restated (FY27 structure),15303,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,Devices and Consumer segment,restated (FY27 structure),15663,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,Devices and Consumer segment,restated (FY27 structure),16001,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,Devices and Consumer segment,restated (FY27 structure),16832,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,Devices and Consumer segment,restated (FY27 structure),15448,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,Devices and Consumer segment,restated (FY27 structure),15431,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q1,Jul-Sep 2024,2024-09-30,Search and advertising,restated (FY27 structure),5159,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q2,Oct-Dec 2024,2024-12-31,Search and advertising,restated (FY27 structure),5773,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q3,Jan-Mar 2025,2025-03-31,Search and advertising,restated (FY27 structure),5437,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY25 Q4,Apr-Jun 2025,2025-06-30,Search and advertising,restated (FY27 structure),5802,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q1,Jul-Sep 2025,2025-09-30,Search and advertising,restated (FY27 structure),5942,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q2,Oct-Dec 2025,2025-12-31,Search and advertising,restated (FY27 structure),6393,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q3,Jan-Mar 2026,2026-03-31,Search and advertising,restated (FY27 structure),6065,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
+FY26 Q4,Apr-Jun 2026,2026-06-30,Search and advertising,restated (FY27 structure),6435,https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm
