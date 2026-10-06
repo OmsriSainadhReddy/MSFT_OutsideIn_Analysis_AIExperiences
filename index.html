@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consumer Copilot: where the next growth comes from</title>
+<meta name="description" content="Outside-in analysis of Microsoft's consumer revenue: a guidance backtest, a live FY27 Q1 forecast, and a business case for three consumer Copilot monetization options.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --ink:#16202E; --muted:#596677; --line:#D7DDE5;
+  --pri:#2E6B57; --pri-soft:#DCEBE4; --amber:#A8650F; --amber-soft:#F4E6CF;
+  --slate:#8C99A8; --slate-soft:#E3E8EE; --red:#A23B3B;
+  --serif:"Literata", Georgia, "Times New Roman", serif;
+  --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10161E; --surface:#18212C; --ink:#E5EAF0; --muted:#9AA7B6; --line:#2B3746;
+    --pri:#5FB596; --pri-soft:#1D3A30; --amber:#E2A24C; --amber-soft:#40311A;
+    --slate:#6A7889; --slate-soft:#243040; --red:#E07B7B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10161E; --surface:#18212C; --ink:#E5EAF0; --muted:#9AA7B6; --line:#2B3746;
+  --pri:#5FB596; --pri-soft:#1D3A30; --amber:#E2A24C; --amber-soft:#40311A;
+  --slate:#6A7889; --slate-soft:#243040; --red:#E07B7B;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--pri)}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px;border-radius:4px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+header.top{padding:32px 0 22px;text-align:center}
+header.top .who{font-size:14px;color:var(--muted);margin:0 0 10px}
+header.top h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.12;margin:0 auto 10px;max-width:28ch}
+header.top p.sub{margin:0 auto;color:var(--muted);max-width:70ch}
+
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+nav.tabs button{font:inherit;font-size:15px;background:none;border:0;color:var(--muted);padding:14px 12px 12px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--pri)}
+nav.tabs button:hover{color:var(--ink)}
+
+main.wrap{padding-top:36px;padding-bottom:64px}
+section.panel[hidden]{display:none}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,2.6vw,1.95rem);line-height:1.2;margin:0 0 10px}
+h3{font-size:16px;font-weight:600;margin:28px 0 8px}
+p{margin:0 0 14px;max-width:68ch}
+.lede{font-size:1.06rem;color:var(--muted);max-width:66ch;margin-bottom:26px}
+.card{background:var(--surface);border-radius:10px;padding:20px 22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat .v{font-family:var(--serif);font-size:2rem;line-height:1.1}
+.stat .k{font-size:14px;color:var(--muted);margin-top:4px}
+.stat.pri .v{color:var(--pri)}
+.note{font-size:14px;color:var(--muted)}
+.callout{border-left:3px solid var(--pri);padding:4px 0 4px 16px;margin:24px 0}
+.callout p{font-family:var(--serif);font-size:1.12rem;line-height:1.6;margin:0}
+.risk{border-left-color:var(--amber)}
+ol.steps{padding-left:20px;margin:0}
+ol.steps li{margin-bottom:10px;max-width:66ch}
+
+.tbl{overflow-x:auto;background:var(--surface);border-radius:10px;padding:4px 16px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;font-size:13px;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+tr.best td{background:var(--pri-soft)}
+th small{display:block;font-weight:400}
+
+.chart svg{display:block;width:100%;height:auto}
+.chart svg text{font-family:var(--sans);fill:var(--muted);font-size:12px}
+.chart svg text.ink{fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin:0 0 10px}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.legend i.sq{height:12px;width:12px}
+
+/* model */
+.model{display:grid;grid-template-columns:330px 1fr;gap:28px;align-items:start}
+.ctl{margin-bottom:16px}
+.ctl label{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:4px}
+.ctl output{font-weight:600}
+.ctl .hint{font-size:12px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--pri)}
+.ctlgroup{font-size:13px;font-weight:600;color:var(--muted);margin:18px 0 10px}
+button.reset{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;padding:8px 14px;cursor:pointer}
+.bars .row{display:grid;grid-template-columns:200px 1fr 80px;gap:12px;align-items:center;padding:8px 0}
+.bars .track{height:20px;background:var(--slate-soft);border-radius:3px;overflow:hidden}
+.bars .fill{height:100%;background:var(--pri);border-radius:3px}
+.bars .fill.alt{background:var(--slate)}
+.bars .val{text-align:right;font-weight:600}
+.sens td{text-align:right}
+.sens td:first-child,.sens th:first-child{text-align:left}
+.sens td.win{background:var(--pri-soft);font-weight:600}
+.sens td.cur{outline:2px solid var(--pri);outline-offset:-2px}
+.pending{display:inline-block;font-size:13px;padding:2px 10px;border-radius:12px;background:var(--amber-soft);color:var(--amber);font-weight:600}
+.range{position:relative;height:34px;margin:8px 0 4px}
+.range .axis{position:absolute;top:16px;left:0;right:0;height:2px;background:var(--line)}
+.range .band{position:absolute;top:10px;height:14px;background:var(--amber-soft);border:1px solid var(--amber);border-radius:3px}
+.range .dot{position:absolute;top:7px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--pri)}
+.range .tick{position:absolute;top:30px;font-size:12px;color:var(--muted);transform:translateX(-50%)}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:14px;color:var(--muted)}
+
+@media (max-width:860px){
+  .grid2,.model{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .bars .row{grid-template-columns:140px 1fr 70px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .grid3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <h1>Consumer Copilot: where the next growth comes from</h1>
+  <p class="sub">Outside-in analysis by Omsri Yarram, from public filings. October 2026.</p>
+</header>
+
+<nav class="tabs" aria-label="Analysis sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="t-summary" aria-controls="p-summary" data-tab="summary">Summary</button>
+    <button role="tab" id="t-setup" aria-controls="p-setup" data-tab="setup">The setup</button>
+    <button role="tab" id="t-backtest" aria-controls="p-backtest" data-tab="backtest">Guidance check</button>
+    <button role="tab" id="t-forecast" aria-controls="p-forecast" data-tab="forecast">FY27 Q1 forecast</button>
+    <button role="tab" id="t-options" aria-controls="p-options" data-tab="options">Options model</button>
+    <button role="tab" id="t-sens" aria-controls="p-sens" data-tab="sens">When it flips</button>
+    <button role="tab" id="t-method" aria-controls="p-method" data-tab="method">Method and sources</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- SUMMARY -->
+<section class="panel" id="p-summary" role="tabpanel" aria-labelledby="t-summary">
+  <h2>Both consumer revenue engines are slowing at the same time</h2>
+  <p class="lede">Search ad growth halved in a year. Consumer subscription growth was lifted by the Copilot price increase, which is now wearing off. This analysis sizes three ways for consumer Copilot to restore growth, and names the two numbers that decide between them.</p>
+  <div class="grid3">
+    <div class="card stat"><div class="v num">21% to 10%</div><div class="k">Search ad growth (ex-TAC), FY25 Q4 to FY26 Q4. Guided mid-single digits next.</div></div>
+    <div class="card stat"><div class="v num">29% vs 6%</div><div class="k">Consumer cloud revenue growth vs subscription growth, FY26 Q2. Growth came from price.</div></div>
+    <div class="card stat pri"><div class="v num" id="s-npv-c">$656M</div><div class="k">Three-year gross profit value of the top option: scaling ads in free Copilot.</div></div>
+  </div>
+
+  <div class="callout"><p>Suggested path: scale ads in free Copilot first, test a low-price AI plan in a few markets with a pass mark of about 1.2% paid conversion, and keep the Premium upsell running.</p></div>
+
+  <h3>The three options</h3>
+  <div class="tbl"><table id="sum-table"></table></div>
+  <p class="note" style="margin-top:10px">Three-year value is the net present value of gross profit, FY27 to FY29, at a 9% discount rate. Each option is sized on its own. Change the assumptions on the Options model tab.</p>
+
+  <h3>What would change the answer</h3>
+  <ol class="steps">
+    <li><b>Ads fall behind the Premium upsell</b> if they earn under about $2 per user a year by FY29, or if, at $2, more than roughly 35 to 40% of that money would have come through Bing anyway. At $3 they stay ahead even if half comes from Bing.</li>
+    <li><b>The low-price plan only beats the Premium upsell</b> if more than about 1.2% of free Copilot users pay for it by FY29.</li>
+  </ol>
+  <p style="margin-top:14px">Both can be measured before committing: an ads holdout group for the first, a two-market price test for the second.</p>
+</section>
+
+<!-- SETUP -->
+<section class="panel" id="p-setup" role="tabpanel" aria-labelledby="t-setup" hidden>
+  <h2>The setup: what the public numbers show</h2>
+  <p class="lede">Eight quarters of revenue by business line from Microsoft's September 2026 restatement filing, plus growth rates disclosed on earnings calls. Microsoft's fiscal year runs July to June: FY26 is July 2025 to June 2026.</p>
+  <div class="grid2">
+    <div class="card chart">
+      <h3 style="margin-top:0">Search ad revenue growth, ex-TAC</h3>
+      <div class="legend"><span><i style="background:var(--pri)"></i>Actual</span><span><i style="background:var(--amber)"></i>Guidance midpoint</span></div>
+      <div id="ch-search"></div>
+      <p class="note">FY27 Q1 guide: mid-single digits. Growth has fallen as the boost from third-party partnerships faded.</p>
+    </div>
+    <div class="card chart">
+      <h3 style="margin-top:0">Microsoft 365 consumer revenue growth</h3>
+      <div class="legend"><span><i style="background:var(--pri)"></i>Products and cloud, year over year</span></div>
+      <div id="ch-consumer"></div>
+      <p class="note">FY27 Q1 guide: mid-teens for consumer cloud. In FY26 Q2, subscriptions grew only 6% while cloud revenue grew 29%.</p>
+    </div>
+  </div>
+  <div class="card chart" style="margin-top:20px">
+    <h3 style="margin-top:0">Devices and Consumer segment revenue, restated ($B)</h3>
+    <div class="legend"><span><i class="sq" style="background:var(--slate)"></i>Reported quarters</span><span><i class="sq" style="background:var(--amber)"></i>FY27 Q1 guidance midpoint</span></div>
+    <div id="ch-dc"></div>
+    <p class="note">The new segment covers search and advertising, XBOX and Windows OEM. Guidance implies about a 7% decline next quarter, with Windows OEM down in the low twenties. Advertising is the only line still growing.</p>
+  </div>
+  <h3>Revenue by business line ($M)</h3>
+  <div class="tbl"><table id="data-table" class="num"></table></div>
+</section>
+
+<!-- BACKTEST -->
+<section class="panel" id="p-backtest" role="tabpanel" aria-labelledby="t-backtest" hidden>
+  <h2>How accurate is Microsoft's own guidance?</h2>
+  <p class="lede">Before forecasting, I tested three ways of predicting next quarter's search ad growth against what actually happened. Guidance wording comes from Microsoft's earnings call transcripts. Errors below are averaged over the four quarters where all three methods can be applied.</p>
+  <div class="grid3">
+    <div class="card stat"><div class="v num" id="bt-raw"></div><div class="k">Average error: guidance midpoint</div></div>
+    <div class="card stat"><div class="v num" id="bt-naive"></div><div class="k">Average error: repeat last quarter's growth</div></div>
+    <div class="card stat pri"><div class="v num" id="bt-bias"></div><div class="k">Average error: guidance plus its average past beat</div></div>
+  </div>
+  <div class="card chart" style="margin-top:20px">
+    <div class="legend"><span><i style="background:var(--pri)"></i>Actual</span><span><i style="background:var(--amber)"></i>Guidance midpoint</span><span><i style="background:var(--slate)"></i>Guidance plus past beat</span></div>
+    <div id="ch-bt"></div>
+  </div>
+  <h3>Quarter by quarter</h3>
+  <div class="tbl"><table id="bt-table" class="num"></table></div>
+  <p class="note" style="margin-top:12px">Results beat the guidance midpoint in four of five quarters. The miss, FY26 Q2, Microsoft described as slightly below expectations due to execution challenges. Five quarters is a small sample: a pattern to watch, not a rule.</p>
+</section>
+
+<!-- FORECAST -->
+<section class="panel" id="p-forecast" role="tabpanel" aria-labelledby="t-forecast" hidden>
+  <h2>A live test: forecast for FY27 Q1</h2>
+  <p class="lede">The quarter ended September 30, 2026. Microsoft reports it in late October. This forecast was published before the results, so it can be checked against them. <span class="pending" id="fc-status">Result pending</span></p>
+  <div class="card">
+    <h3 style="margin-top:0">Search ad revenue growth, ex-TAC (as-reported basis)</h3>
+    <div class="range" id="rg-search" aria-hidden="true"></div>
+    <p style="margin-top:24px">Guidance says 4% to 6%. Applying the 2.2-point average past beat gives <b id="fc-s1"></b>.</p>
+  </div>
+  <div class="tbl" style="margin-top:20px"><table id="fc-table" class="num"></table></div>
+  <p class="note" style="margin-top:12px">The restated basis adds LinkedIn Marketing Solutions and Premium Subscriptions, which Microsoft now reports inside search and advertising. Microsoft 365 consumer guidance covers the cloud portion only, so the revenue forecast is approximate.</p>
+</section>
+
+<!-- OPTIONS -->
+<section class="panel" id="p-options" role="tabpanel" aria-labelledby="t-options" hidden>
+  <h2>Options model: three ways to grow consumer Copilot revenue</h2>
+  <p class="lede">Move the assumptions that matter most. Results update below and on the Summary and When it flips tabs. Defaults match the Excel model.</p>
+  <div class="model">
+    <form class="card" onsubmit="return false" id="ctls">
+      <div class="ctlgroup" style="margin-top:0">Audience</div>
+      <div class="ctl"><label for="mau">Free Copilot monthly users, FY26 <output id="o-mau"></output></label><input type="range" id="mau" min="200" max="450" step="10"><div class="hint">Third-party estimates: 218M to 420M</div></div>
+      <div class="ctlgroup">A. Premium upsell</div>
+      <div class="ctl"><label for="mix">Premium share of subscribers, FY29 <output id="o-mix"></output></label><input type="range" id="mix" min="4" max="20" step="1"><div class="hint">Assumed 4% today</div></div>
+      <div class="ctlgroup">B. Low-price AI plan</div>
+      <div class="ctl"><label for="price">Price per month <output id="o-price"></output></label><input type="range" id="price" min="4.99" max="12.99" step="1"><div class="hint">ChatGPT Go and Google AI Plus are about $8</div></div>
+      <div class="ctl"><label for="conv">Paid conversion of free users, FY29 <output id="o-conv"></output></label><input type="range" id="conv" min="0" max="4" step="0.1"></div>
+      <div class="ctlgroup">C. Ads in free Copilot</div>
+      <div class="ctl"><label for="arpu">Ad revenue per user a year, FY29 <output id="o-arpu"></output></label><input type="range" id="arpu" min="0" max="6" step="0.25"><div class="hint">Bing earns about $15 per user a year</div></div>
+      <div class="ctl"><label for="cann">Share taken from Bing <output id="o-cann"></output></label><input type="range" id="cann" min="0" max="70" step="5"></div>
+      <div class="ctlgroup">Finance</div>
+      <div class="ctl"><label for="rate">Discount rate <output id="o-rate"></output></label><input type="range" id="rate" min="5" max="15" step="1"></div>
+      <button type="button" class="reset" id="reset">Reset to base case</button>
+    </form>
+    <div>
+      <div class="card">
+        <h3 style="margin-top:0">Three-year value (NPV of gross profit, $M)</h3>
+        <div class="bars" id="npv-bars" aria-live="polite"></div>
+      </div>
+      <h3>Year by year ($M)</h3>
+      <div class="tbl"><table id="yr-table" class="num"></table></div>
+      <p class="note" style="margin-top:12px">Options A and B land in Microsoft 365 consumer cloud (Agents and Infra segment). Option C lands in search and advertising (Devices and Consumer segment), net of what it takes from Bing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SENSITIVITY -->
+<section class="panel" id="p-sens" role="tabpanel" aria-labelledby="t-sens" hidden>
+  <h2>When the answer flips</h2>
+  <p class="lede">Green cells beat the safe option, the Premium upsell, currently worth <b id="sens-a"></b>. The outlined cell is your current setting on the Options model tab.</p>
+  <h3>Ads in free Copilot: ad revenue per user (rows) by share taken from Bing (columns)</h3>
+  <div class="tbl"><table id="sens-c" class="sens num"></table></div>
+  <h3>Low-price AI plan: paid conversion (rows) by monthly price (columns)</h3>
+  <div class="tbl"><table id="sens-b" class="sens num"></table></div>
+  <p class="note" style="margin-top:12px">Price and conversion are set independently here. A higher price usually lowers conversion, so compare realistic pairs, for example 1.5% at $7.99 against 0.8% at $12.99.</p>
+</section>
+
+<!-- METHOD -->
+<section class="panel" id="p-method" role="tabpanel" aria-labelledby="t-method" hidden>
+  <h2>Method and sources</h2>
+  <p class="lede">Public data only. Where Microsoft does not disclose a number, it is an assumption, listed below. Internal data would change several of them. The full model with live formulas is <a href="model/msft_consumer_ai_model.xlsx">model/msft_consumer_ai_model.xlsx</a>, the raw data with a source for every number is in <a href="data/quarterly_revenue.csv">quarterly_revenue.csv</a>, <a href="data/growth_metrics.csv">growth_metrics.csv</a>, <a href="data/guidance_history.csv">guidance_history.csv</a> and <a href="data/assumptions.csv">assumptions.csv</a>, the dated forecast is <a href="forecasts/fy27_q1.csv">fy27_q1.csv</a>, and the written argument is <a href="memo.md">memo.md</a>.</p>
+  <p class="note">Fiscal calendar: Microsoft's year runs July 1 to June 30. Q1 is July to September, Q2 October to December, Q3 January to March, Q4 April to June.</p>
+  <h3>Key assumptions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Assumption</th><th>Value</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Paid consumer subscribers</td><td class="num">~87M</td><td>Derived: FY26 consumer revenue x 90% cloud share / $95 blended price. Microsoft stopped disclosing the count in FY26.</td></tr>
+      <tr><td>Subscriber growth</td><td class="num">4% a year</td><td>Below the 6% disclosed for FY26 Q2, as the price effect fades</td></tr>
+      <tr><td>Free Copilot monthly users</td><td class="num">300M, +10% a year</td><td>Midpoint of third-party estimates</td></tr>
+      <tr><td>Premium share today</td><td class="num">4%</td><td>Assumption; Premium launched October 2025</td></tr>
+      <tr><td>AI cost per upgraded Premium subscriber</td><td class="num">$18 a year</td><td>Assumption; costs are not disclosed</td></tr>
+      <tr><td>Low-price plan cost to serve, acquisition</td><td class="num">$30 a year, $20 per new user</td><td>Assumption</td></tr>
+      <tr><td>Ads: users in ad markets, serving cost</td><td class="num">60%, 15% of revenue</td><td>Assumption</td></tr>
+      <tr><td>Ramp to FY29</td><td>One third, two thirds, full</td><td>Applied to Premium share gain, conversion and ad revenue per user</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Sources</h3>
+  <ol class="note" style="padding-left:20px">
+    <li><a href="https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm">Microsoft Form 8-K, FY27 Segments and Investor Metrics, September 2026</a>: quarterly revenue by business line, restated segments, FY27 Q1 outlook</li>
+    <li>Microsoft earnings call transcripts: <a href="https://www.microsoft.com/en-us/investor/events/fy-2025/earnings-fy-2025-q4">FY25 Q4</a>, <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1">FY26 Q1</a>, <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2">FY26 Q2</a>, <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3">FY26 Q3</a>, <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4">FY26 Q4</a>: guidance wording, consumer growth</li>
+    <li><a href="https://microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast">Microsoft FY26 Q4 earnings release</a></li>
+    <li>Consumer prices: <a href="https://www.digitalcitizen.life/microsoft-365-personal-and-family-plans-see-a-price-increase-with-copilot-ai/">Digital Citizen</a>, <a href="https://office-watch.com/2025/microsoft-365-premium-features-pricing/">Office Watch</a></li>
+    <li>Competitor plans: <a href="https://aizolo.com/blog/chatgpt-vs-claude-vs-gemini-cost-the-2025-ultimate-price-comparison-spoiler-theres-a-better-way/">AI plan price comparison</a>; ChatGPT subscribers and ads: <a href="https://intuitionlabs.ai/articles/chatgpt-ads-economic-analysis">IntuitionLabs</a></li>
+    <li>Copilot consumer users (third-party estimate): <a href="https://landing.inkboard.ink/resources/advertising-in-ai-assistants-chatgpt-gemini-perplexity">Inkboard</a>; Bing 1B monthly users: <a href="https://www.searchenginejournal.com/microsoft-says-bing-reached-1b-monthly-active-users/573444/">Search Engine Journal</a></li>
+  </ol>
+  <p class="note">Independent work. Not affiliated with or endorsed by Microsoft.</p>
+</section>
+</main>
+
+<footer class="wrap">Built by Omsri Yarram, pricing strategy and analytics. Pushback on any assumption is welcome<span id="contact"></span>.</footer>
+
+<script>
+// Set to your LinkedIn URL before publishing
+const CONTACT_URL = "";
+// After Microsoft reports FY27 Q1 (late Oct 2026), set the actual ex-TAC growth here, e.g. 0.07
+const FY27Q1_ACTUAL = null;
+
+(function(){
+if (CONTACT_URL) document.getElementById('contact').innerHTML = ': <a href="'+CONTACT_URL+'">connect on LinkedIn</a>';
+
+/* ---------- data (from Microsoft filings and calls) ---------- */
+const Q = ['FY25 Q1','FY25 Q2','FY25 Q3','FY25 Q4','FY26 Q1','FY26 Q2','FY26 Q3','FY26 Q4'];
+const CAL = ['Jul-Sep 24','Oct-Dec 24','Jan-Mar 25','Apr-Jun 25','Jul-Sep 25','Oct-Dec 25','Jan-Mar 26','Apr-Jun 26'];
+const REV = {
+  'Search advertising, as reported': [3225,3558,3504,3591,3697,3812,3808,3859],
+  'Microsoft 365 consumer products and cloud': [1727,1821,1821,2035,2204,2305,2297,2369],
+  'Search and advertising, restated': [5159,5773,5437,5802,5942,6393,6065,6435],
+  'Devices and Consumer segment, restated': [15109,16866,15303,15663,16001,16832,15448,15431]
+};
+// guidance-check quarters
+const BT = [
+  {q:'FY25 Q4', cal:'Apr-Jun 25', words:'High teens', lo:.17, hi:.19, act:.21, prev:.21},
+  {q:'FY26 Q1', cal:'Jul-Sep 25', words:'Low- to mid-teens', lo:.11, hi:.15, act:.16},
+  {q:'FY26 Q2', cal:'Oct-Dec 25', words:'Low double digits', lo:.10, hi:.12, act:.10},
+  {q:'FY26 Q3', cal:'Jan-Mar 26', words:'High single digits', lo:.07, hi:.09, act:.12},
+  {q:'FY26 Q4', cal:'Apr-Jun 26', words:'High single digits', lo:.07, hi:.09, act:.10}
+];
+const pct = (x,d=1) => (x*100).toFixed(d)+'%';
+const usdM = x => '$'+Math.round(x).toLocaleString()+'M';
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- backtest ---------- */
+let beats = [], rows = [];
+BT.forEach((b,i) => {
+  const mid = (b.lo+b.hi)/2;
+  const naive = i===0 ? b.prev : BT[i-1].act;
+  const bias = beats.length ? mid + beats.reduce((a,c)=>a+c,0)/beats.length : null;
+  rows.push({...b, mid, naive, bias});
+  beats.push(b.act - mid);
+});
+const avgBeat = beats.reduce((a,c)=>a+c,0)/beats.length;
+const mae = arr => arr.reduce((a,c)=>a+Math.abs(c),0)/arr.length;
+const withBias = rows.filter(r => r.bias!==null);
+const maeRaw = mae(withBias.map(r=>r.mid-r.act));
+const maeNaive = mae(withBias.map(r=>r.naive-r.act));
+const maeBias = mae(withBias.map(r=>r.bias-r.act));
+const pts = x => (x*100+1e-9).toFixed(1)+' pts';
+document.getElementById('bt-raw').textContent = pts(maeRaw);
+document.getElementById('bt-naive').textContent = pts(maeNaive);
+document.getElementById('bt-bias').textContent = pts(maeBias);
+let h = '<thead><tr><th>Quarter</th><th>Guidance given</th><th class="r">Midpoint</th><th class="r">Actual</th><th class="r">Beat</th><th class="r">Repeat last quarter</th><th class="r">Guidance plus past beat</th></tr></thead><tbody>';
+rows.forEach(r => { h += '<tr><td>'+r.q+'<br><span class="note">'+r.cal+'</span></td><td>'+r.words+'</td><td class="r">'+pct(r.mid,0)+'</td><td class="r"><b>'+pct(r.act,0)+'</b></td><td class="r">'+((r.act-r.mid)>=0?'+':'')+((r.act-r.mid)*100).toFixed(0)+' pts</td><td class="r">'+pct(r.naive,0)+'</td><td class="r">'+(r.bias===null?'n/a':pct(r.bias))+'</td></tr>'; });
+document.getElementById('bt-table').innerHTML = h + '</tbody>';
+
+/* ---------- forecast ---------- */
+const fcS = .05 + avgBeat, fcR = .07 + avgBeat;
+const fy26Rep = REV['Search advertising, as reported'].slice(4).reduce((a,c)=>a+c,0);
+const fy25Rep = REV['Search advertising, as reported'].slice(0,4).reduce((a,c)=>a+c,0);
+const gap = (fy26Rep/fy25Rep-1) - .12;
+const fcRev = 3697*(1+fcS+gap), fcCons = 2204*1.15;
+document.getElementById('fc-s1').textContent = 'about '+pct(fcS);
+const rg = document.getElementById('rg-search'), lo=0, hi=.12, X = v => ((v-lo)/(hi-lo)*100)+'%';
+rg.innerHTML = '<div class="axis"></div><div class="band" style="left:'+X(.04)+';width:calc('+X(.06)+' - '+X(.04)+')"></div><div class="dot" style="left:'+X(fcS)+'" title="Forecast"></div>'
+  + [0,.02,.04,.06,.08,.10,.12].map(t=>'<span class="tick" style="left:'+X(t)+'">'+(t*100)+'%</span>').join('')
+  + (FY27Q1_ACTUAL!==null ? '<div class="dot" style="left:'+X(FY27Q1_ACTUAL)+';background:var(--ink)" title="Actual"></div>' : '');
+if (FY27Q1_ACTUAL!==null){ const s=document.getElementById('fc-status'); s.textContent='Actual: '+pct(FY27Q1_ACTUAL)+', forecast error '+((fcS-FY27Q1_ACTUAL)*100).toFixed(1)+' pts'; }
+document.getElementById('fc-table').innerHTML =
+ '<thead><tr><th>Metric, FY27 Q1</th><th>Microsoft guidance</th><th class="r">My forecast</th></tr></thead><tbody>'+
+ '<tr><td>Search ad revenue growth, ex-TAC (as-reported basis)</td><td>Mid-single digits (4% to 6%)</td><td class="r"><b>'+pct(fcS)+'</b></td></tr>'+
+ '<tr><td>Search and advertising growth, ex-TAC (restated basis)</td><td>Mid- to high-single digits (6% to 8%)</td><td class="r"><b>'+pct(fcR)+'</b></td></tr>'+
+ '<tr><td>Search advertising revenue, reported</td><td>Not guided</td><td class="r"><b>$'+(fcRev/1000).toFixed(2)+'B</b></td></tr>'+
+ '<tr><td>Microsoft 365 consumer products and cloud revenue</td><td>Mid-teens growth (cloud)</td><td class="r"><b>$'+(fcCons/1000).toFixed(2)+'B</b></td></tr>'+
+ '<tr><td>Devices and Consumer segment revenue</td><td>$14.7B to $15.2B</td><td class="r"><b>'+pct(14950/16001-1)+'</b> vs a year ago</td></tr></tbody>';
+
+/* ---------- data table ---------- */
+let dt = '<thead><tr><th>Business line</th>'+Q.map((q,i)=>'<th class="r">'+q+'<small>'+CAL[i]+'</small></th>').join('')+'<th class="r">FY26 growth</th></tr></thead><tbody>';
+Object.entries(REV).forEach(([k,v]) => { const g = v.slice(4).reduce((a,c)=>a+c,0)/v.slice(0,4).reduce((a,c)=>a+c,0)-1;
+  dt += '<tr><td>'+k+'</td>'+v.map(x=>'<td class="r">'+x.toLocaleString()+'</td>').join('')+'<td class="r"><b>'+pct(g)+'</b></td></tr>'; });
+document.getElementById('data-table').innerHTML = dt+'</tbody>';
+
+/* ---------- charts ---------- */
+function lineChart(el, labels, series, opts){
+  const W=520,H=240,pl=40,pr=12,pt=14,pb=34, max=opts.max, min=opts.min||0;
+  const x = i => pl + i*(W-pl-pr)/(labels.length-1), y = v => pt + (1-(v-min)/(max-min))*(H-pt-pb);
+  let g = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+opts.aria+'">';
+  for (let t=min; t<=max+1e-9; t+=opts.step){ g += '<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y(t)+'" y2="'+y(t)+'" stroke="'+css('--line')+'"/><text x="'+(pl-6)+'" y="'+(y(t)+4)+'" text-anchor="end">'+Math.round(t*100)+'%</text>'; }
+  labels.forEach((l,i)=>{ g += '<text x="'+x(i)+'" y="'+(H-14)+'" text-anchor="middle">'+l+'</text>'; });
+  series.forEach(s => {
+    const pts = s.data.map((v,i)=>v===null?null:[x(i),y(v)]).filter(Boolean);
+    g += '<polyline fill="none" stroke="'+css(s.color)+'" stroke-width="2.5" '+(s.dash?'stroke-dasharray="5 4"':'')+' points="'+pts.map(p=>p.join(',')).join(' ')+'"/>';
+    s.data.forEach((v,i)=>{ if(v===null) return; g += '<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.5" fill="'+css(s.color)+'"><title>'+labels[i]+': '+pct(v)+'</title></circle>';
+      if (s.label) g += '<text class="ink" x="'+x(i)+'" y="'+(y(v)-9)+'" text-anchor="middle">'+Math.round(v*100)+'%</text>'; });
+  });
+  el.innerHTML = g+'</svg>';
+}
+function drawCharts(){
+  lineChart(document.getElementById('ch-search'), ['FY25 Q4','FY26 Q1','FY26 Q2','FY26 Q3','FY26 Q4'],
+    [{data:BT.map(b=>(b.lo+b.hi)/2), color:'--amber', dash:true},{data:BT.map(b=>b.act), color:'--pri', label:true}],
+    {max:.25, step:.05, aria:'Search ad growth fell from 21% to 10%'});
+  const c = REV['Microsoft 365 consumer products and cloud'];
+  lineChart(document.getElementById('ch-consumer'), ['FY26 Q1','FY26 Q2','FY26 Q3','FY26 Q4'],
+    [{data:[4,5,6,7].map(i=>c[i]/c[i-4]-1), color:'--pri', label:true}],
+    {max:.35, step:.05, aria:'Consumer revenue growth fell from 28% to 16%'});
+  lineChart(document.getElementById('ch-bt'), BT.map(b=>b.q),
+    [{data:rows.map(r=>r.mid), color:'--amber', dash:true},{data:rows.map(r=>r.bias), color:'--slate', dash:true},{data:rows.map(r=>r.act), color:'--pri', label:true}],
+    {max:.25, step:.05, aria:'Actual growth versus guidance midpoint and bias-corrected guidance'});
+  // D&C bars
+  const d = REV['Devices and Consumer segment, restated'].concat([14950]);
+  const labs = Q.concat(['FY27 Q1']), W=1000,H=230,pl=44,pb=34,pt=16, max=18000;
+  const bw=(W-pl-20)/labs.length*0.62, step=(W-pl-20)/labs.length;
+  let g='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Devices and Consumer revenue by quarter">';
+  [0,5000,10000,15000].forEach(t=>{ const yy=pt+(1-t/max)*(H-pt-pb); g+='<line x1="'+pl+'" x2="'+(W-10)+'" y1="'+yy+'" y2="'+yy+'" stroke="'+css('--line')+'"/><text x="'+(pl-6)+'" y="'+(yy+4)+'" text-anchor="end">$'+(t/1000)+'B</text>'; });
+  d.forEach((v,i)=>{ const hgt=v/max*(H-pt-pb), x=pl+i*step+(step-bw)/2, yy=H-pb-hgt;
+    g+='<rect x="'+x+'" y="'+yy+'" width="'+bw+'" height="'+hgt+'" rx="2" fill="'+css(i===8?'--amber':'--slate')+'"><title>'+labs[i]+': $'+(v/1000).toFixed(1)+'B</title></rect>';
+    g+='<text class="ink" x="'+(x+bw/2)+'" y="'+(yy-6)+'" text-anchor="middle">'+(v/1000).toFixed(1)+'</text><text x="'+(x+bw/2)+'" y="'+(H-14)+'" text-anchor="middle">'+labs[i]+'</text>'; });
+  document.getElementById('ch-dc').innerHTML = g+'</svg>';
+}
+
+/* ---------- options model (mirrors the Excel Business Case tab) ---------- */
+const BASE = {mau:300, mix:10, price:7.99, conv:1.5, arpu:3, cann:30, rate:9};
+const K = {subs0: 9175*0.90/95, subG:.04, mauG:.10, mix0:.04, step:199.99-129.99, realise:.85, costA:18,
+           costB:30, acq:20, down:.20, personal:99.99, elig:.60, adCost:.15};
+const ramp = [1/3, 2/3, 1];
+function model(p){
+  const r = p.rate/100, out = {A:[],B:[],C:[]};
+  let prevB = 0;
+  for (let t=1;t<=3;t++){
+    const subs = K.subs0*Math.pow(1+K.subG,t), mau = p.mau*Math.pow(1+K.mauG,t), w = ramp[t-1];
+    const up = subs*((p.mix/100-K.mix0)*w);
+    const revA = up*K.step*K.realise, gpA = revA - up*K.costA;
+    const annual = p.price*12, sB = mau*(p.conv/100)*w, newB = Math.max(sB-prevB,0); prevB = sB;
+    const revB = sB*(annual - K.down*Math.max(K.personal-annual,0)), gpB = revB - (sB*K.costB + newB*K.acq);
+    const gross = mau*K.elig*p.arpu*w, revC = gross*(1-p.cann/100), gpC = revC*(1-K.adCost);
+    out.A.push({rev:revA,gp:gpA}); out.B.push({rev:revB,gp:gpB}); out.C.push({rev:revC,gp:gpC});
+  }
+  const npv = arr => arr.reduce((a,c,i)=>a+c.gp/Math.pow(1+r,i+1),0);
+  out.npv = {A:npv(out.A), B:npv(out.B), C:npv(out.C)};
+  return out;
+}
+const ids = Object.keys(BASE), el = Object.fromEntries(ids.map(i=>[i,document.getElementById(i)]));
+const fmtCtl = {mau:v=>v+'M', mix:v=>v+'%', price:v=>'$'+(+v).toFixed(2), conv:v=>(+v).toFixed(1)+'%', arpu:v=>'$'+(+v).toFixed(2), cann:v=>v+'%', rate:v=>v+'%'};
+function read(){ return Object.fromEntries(ids.map(i=>[i, parseFloat(el[i].value)])); }
+function setBase(){ ids.forEach(i=>el[i].value = BASE[i]); update(); }
+const NAMES = {A:'A. Premium upsell', B:'B. Low-price AI plan', C:'C. Ads in free Copilot'};
+function update(){
+  const p = read(); ids.forEach(i=>document.getElementById('o-'+i).textContent = fmtCtl[i](p[i]));
+  const m = model(p), mx = Math.max(m.npv.A,m.npv.B,m.npv.C,1), best = Object.keys(m.npv).reduce((a,b)=>m.npv[a]>=m.npv[b]?a:b);
+  document.getElementById('npv-bars').innerHTML = ['A','B','C'].map(k=>'<div class="row"><div>'+NAMES[k]+'</div><div class="track"><div class="fill'+(k===best?'':' alt')+'" style="width:'+(Math.max(m.npv[k],0)/mx*100)+'%"></div></div><div class="val num">'+usdM(m.npv[k])+'</div></div>').join('');
+  let y = '<thead><tr><th>Option</th><th></th><th class="r">FY27<small>Jul 26-Jun 27</small></th><th class="r">FY28<small>Jul 27-Jun 28</small></th><th class="r">FY29<small>Jul 28-Jun 29</small></th></tr></thead><tbody>';
+  ['A','B','C'].forEach(k=>{ y += '<tr><td rowspan="2"><b>'+NAMES[k]+'</b></td><td>Revenue</td>'+m[k].map(v=>'<td class="r">'+usdM(v.rev)+'</td>').join('')+'</tr><tr><td>Gross profit</td>'+m[k].map(v=>'<td class="r">'+usdM(v.gp)+'</td>').join('')+'</tr>'; });
+  document.getElementById('yr-table').innerHTML = y+'</tbody>';
+  // summary table
+  let s = '<thead><tr><th>Option</th><th class="r">FY29 revenue</th><th class="r">FY29 gross profit</th><th class="r">Three-year value</th><th>Main risk</th></tr></thead><tbody>';
+  const risk = {A:'Small base; limited by heavier AI usage costs', B:'Conversion of free users is unproven', C:'How much it takes from Bing'};
+  ['A','B','C'].forEach(k=>{ s += '<tr'+(k===best?' class="best"':'')+'><td><b>'+NAMES[k]+'</b></td><td class="r num">'+usdM(m[k][2].rev)+'</td><td class="r num">'+usdM(m[k][2].gp)+'</td><td class="r num"><b>'+usdM(m.npv[k])+'</b></td><td>'+risk[k]+'</td></tr>'; });
+  document.getElementById('sum-table').innerHTML = s+'</tbody>';
+  document.getElementById('s-npv-c').textContent = usdM(m.npv[best]);
+  const SHORT = {A:'a Premium upsell', B:'a low-price AI plan', C:'ads in free Copilot'};
+  document.querySelector('#s-npv-c + .k').textContent = 'Three-year gross profit value of the top option at current settings: '+SHORT[best]+'.';
+  // sensitivity
+  document.getElementById('sens-a').textContent = usdM(m.npv.A);
+  const arpus=[1,2,3,4,5], canns=[10,20,30,40,50];
+  let c = '<thead><tr><th>Ad revenue per user, FY29</th>'+canns.map(v=>'<th class="r">'+v+'% from Bing</th>').join('')+'</tr></thead><tbody>';
+  arpus.forEach(a=>{ c += '<tr><td>$'+a.toFixed(2)+'</td>'+canns.map(cn=>{ const v=model({...p,arpu:a,cann:cn}).npv.C; const cur=(a===p.arpu&&cn===p.cann)?' cur':''; return '<td class="'+(v>m.npv.A?'win':'')+cur+'">'+usdM(v)+'</td>'; }).join('')+'</tr>'; });
+  document.getElementById('sens-c').innerHTML = c+'</tbody>';
+  const convs=[0.5,1.0,1.5,2.0,3.0], prices=[4.99,7.99,9.99,12.99];
+  let b = '<thead><tr><th>Paid conversion, FY29</th>'+prices.map(v=>'<th class="r">$'+v+' a month</th>').join('')+'</tr></thead><tbody>';
+  convs.forEach(cv=>{ b += '<tr><td>'+cv.toFixed(1)+'%</td>'+prices.map(pr=>{ const v=model({...p,conv:cv,price:pr}).npv.B; const cur=(Math.abs(cv-p.conv)<1e-9&&Math.abs(pr-p.price)<1e-9)?' cur':''; return '<td class="'+(v>m.npv.A?'win':'')+cur+'">'+usdM(v)+'</td>'; }).join('')+'</tr>'; });
+  document.getElementById('sens-b').innerHTML = b+'</tbody>';
+}
+ids.forEach(i=>el[i].addEventListener('input', update));
+document.getElementById('reset').addEventListener('click', setBase);
+
+/* ---------- tabs ---------- */
+const tabs = Array.from(document.querySelectorAll('[role=tab]'));
+function show(id, focus){
+  tabs.forEach(t=>{ const on = t.dataset.tab===id; t.setAttribute('aria-selected', on); t.tabIndex = on?0:-1; document.getElementById('p-'+t.dataset.tab).hidden = !on; if(on&&focus) t.focus(); });
+  try { if (location.hash.slice(1)!==id) history.replaceState(null,'','#'+id); } catch(e) { /* sandboxed previews block URL updates; tabs still work */ }
+  window.scrollTo({top:0});
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click', ()=>show(t.dataset.tab));
+  t.addEventListener('keydown', e=>{ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ const n = tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length]; show(n.dataset.tab,true); e.preventDefault(); } });
+});
+window.addEventListener('hashchange', ()=>{ const id=location.hash.slice(1); if(tabs.some(t=>t.dataset.tab===id)) show(id); });
+
+setBase(); drawCharts();
+const start = location.hash.slice(1);
+show(tabs.some(t=>t.dataset.tab===start) ? start : 'summary');
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawCharts);
+})();
+</script>
+</body>
+</html>
