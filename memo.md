@@ -1,7 +1,7 @@
 # Consumer Copilot: where the next growth comes from
 
 **An outside-in view, built from public filings. October 2026.**
-Prepared by Omsri Yarram. Model: `model/msft_consumer_ai_model.xlsx`; data: `data/`.
+Prepared by Omsri Yarram. Model: `msft_consumer_ai_model.xlsx`; data: `data/`.
 
 *Microsoft's fiscal year runs July to June. FY26 is July 2025 to June 2026; FY27 Q1 is July to September 2026.*
 
