@@ -1,0 +1,5 @@
+metric,guidance_low,guidance_high,forecast,method,published,actual,error_pts
+Search ad revenue ex-TAC growth (as reported),0.04,0.06,0.072,Guidance midpoint + average past beat (2.2 pts),2026-10-05,,
+Search and advertising revenue ex-TAC growth (restated),0.06,0.08,0.092,Guidance midpoint + average past beat (2.2 pts),2026-10-05,,
+"Search advertising revenue, reported (USD M)",,,3865,FY26 Q1 x (1 + ex-TAC forecast + FY26 reported-vs-ex-TAC gap),2026-10-05,,
+Microsoft 365 consumer products and cloud revenue (USD M),,,2535,FY26 Q1 x (1 + 15% guidance midpoint); approximate,2026-10-05,,
