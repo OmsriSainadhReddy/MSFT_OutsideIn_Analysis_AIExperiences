@@ -1,0 +1,21 @@
+assumption,value,unit,used_in,rationale
+Cloud share of M365 consumer revenue,0.9,share,All options,Excludes Office consumer licences; not disclosed
+Blended revenue per paid consumer subscriber,95,USD per year,Subscriber estimate,"Mix of Personal $99.99, Family $129.99, Premium $199.99, legacy plans and discounts"
+Implied paid consumer subscribers,86.9,millions,Option A,Derived: FY26 revenue x cloud share / blended price; Microsoft stopped disclosing the count in FY26 Q1
+Subscriber growth,0.04,per year,Option A,Below the 6% disclosed for FY26 Q2 as the price effect fades
+"Free Copilot consumer monthly users, FY26",300,millions,Options B and C,Midpoint of third-party estimates (218M to 420M)
+Monthly user growth,0.1,per year,Options B and C,Assumption
+Discount rate,0.09,per year,NPV,Assumption
+Premium share of subscribers today,0.04,share,Option A,Assumption; Premium launched October 2025
+"Premium share of subscribers, FY29",0.1,share,Option A,"Assumption; ramps one third, two thirds, full"
+Share of Premium list price realised,0.85,share,Option A,Promotions and regional pricing
+Added AI cost per upgraded subscriber,18,USD per year,Option A,Not disclosed
+Low-price plan price,7.99,USD per month,Option B,Matches Google AI Plus and ChatGPT Go
+"Paid conversion of free users, FY29",0.015,share,Option B,"Assumption; ramps one third, two thirds, full"
+Low-price plan cost to serve,30,USD per year,Option B,Not disclosed
+Acquisition cost per new subscriber,20,USD,Option B,Assumption
+Share of new subscribers who downgrade from Personal,0.2,share,Option B,Assumption
+Share of Copilot users in ad markets,0.6,share,Option C,Assumption
+"Ad revenue per user in ad markets, FY29",3.0,USD per year,Option C,"About 20% of Bing's ~$15 per user; ramps one third, two thirds, full"
+Share of Copilot ad revenue taken from Bing,0.3,share,Option C,Assumption
+Ad serving and operations cost,0.15,share of revenue,Option C,Assumption
